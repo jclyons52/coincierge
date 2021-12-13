@@ -1,0 +1,11 @@
+syntax = "proto3";
+package jclyons52.coincierge.coincierge;
+
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/jclyons52/coincierge/x/coincierge/types";
+
+// GenesisState defines the coincierge module's genesis state.
+message GenesisState {
+    // this line is used by starport scaffolding # genesis/proto/state
+}
