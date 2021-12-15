@@ -1,0 +1,151 @@
+$fontMap: (
+  "df": "./fonts/danger_flight/dangerflight.ttf",
+  "jitf": "./fonts/just_in_the_firestorm.ttf",
+  "tc": "./fonts/turbo_charge/turbocharge.ttf",
+  "tc3": "./fonts/turbo_charge/turbocharge3d.ttf",
+  "s": "./fonts/Skinz.ttf",
+  "a": "./fonts/automania/AUTOMANI.TTF",
+  "m": "./fonts/monoton/Monoton-Regular.ttf",
+  "mm": "./fonts/marquee-moon/marquee-moon.ttf",
+);
+
+$font: map-get($fontMap, "s");
+
+$accentColors: (
+  "blue": #59cfd7,
+  "pink": #fe019a,
+  "silver": #cdd0d7,
+  "lightBlue": #009fff82,
+);
+:root {
+  --blue: #59cfd7;
+  --pink: #fe019a;
+  --light-blue: #009fff82;
+}
+$primary: map-get($accentColors, "blue");
+$secondary: map-get($accentColors, "pink");
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+$accentColor: map-get($accentColors, "lightBlue");
+
+$fontColor: #fe019a;
+
+$background: black;
+
+$animationTime: 2s;
+
+@font-face {
+  font-family: "skinz";
+  src: url($font) format("truetype");
+}
+
+@font-face {
+  font-family: "monoton";
+  src: url(map-get($fontMap, "m")) format("truetype");
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lefttoright {
+  from {
+    transform: translateX(-100vw);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes righttoleft {
+  from {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.cyber {
+  background-size: 80px 80px;
+  background-color: $background;
+  color: $accentColor;
+  background-image: linear-gradient(to right, $accentColor 5px, transparent 1px),
+    linear-gradient(to bottom, $accentColor 5px, transparent 1px);
+}
+
+.app {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  font-family: "skinz", Verdana, Tahoma;
+}
+
+.upper-border {
+  border: 15px solid $accentColor;
+  box-shadow: 0 0 50px $accentColor;
+  animation: lefttoright $animationTime;
+  width: 100vw;
+}
+
+.bottom-border {
+  border: 15px solid $accentColor;
+  box-shadow: 0 0 50px $accentColor;
+  animation: righttoleft $animationTime;
+  width: 100vw;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+h1 {
+  animation: fadein $animationTime;
+  position: absolute;
+  color: $fontColor;
+  text-shadow: 0 0 20px $fontColor;
+  font-size: 64px;
+  @media (max-width: 1400px) {
+    font-size: 16px;
+  }
+}
+
+.circle {
+  border: 45px solid $accentColor;
+  box-shadow: 0 0 50px $accentColor;
+  color: $fontColor;
+  font-family: "monoton", Verdana, Tahoma;
+  background-color: map-get($accentColors, "silver");
+  height: 300px;
+  width: 300px;
+  border-radius: 225px;
+  font-size: 6em;
+  @media (max-width: 1400px) {
+    height: 200px;
+    width: 200px;
+    border-radius: 150px;
+  }
+  text-shadow: 0 0 50px $fontColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
